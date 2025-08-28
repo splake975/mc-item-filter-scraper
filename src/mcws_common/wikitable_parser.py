@@ -125,3 +125,8 @@ def main(table):
     rows, num_rows, num_cols = pre_process_table(table)
     df = process_rows(rows, num_rows, num_cols)
     return(df)
+
+def set_first_row_as_header(df):
+    df.columns = df.iloc[0]         # Set first row as column headers
+    df = df[1:].reset_index(drop=True)  # Drop the first row and reset index
+    return df

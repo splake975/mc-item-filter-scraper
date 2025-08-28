@@ -29,7 +29,7 @@ def get_wiki_html(title:str):
     # print(f"{response.text[:1000]=}")
     data = response.json()
 
-    html = data["parse"]["text"]
+    html:str = data["parse"]["text"]
     # dump
     
     return html
