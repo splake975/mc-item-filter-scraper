@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcws_common"
+version = "0.1.0"
+dependencies = [
+  "beautifulsoup4==4.13.5",
+  "numpy==2.3.2",
+  "pandas==2.3.2",
+  "requests==2.32.5"
+]
+
+[tool.setuptools.packages.find]
+where = ["../../src"]
+
