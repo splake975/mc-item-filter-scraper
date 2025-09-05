@@ -223,10 +223,10 @@ def fetch_beta_versions(bwiki_html:bs4.Tag)->list[VersionObj]:
             
             
             major,minor,patch = map(int,split_version)
-            beta_versions.append(VersionObj(major,minor,patch,extension=int(extension),stage=stage))
+            beta_versions.append(VersionObj(major,minor,patch,extension=int(extension),stage=stage,release_date=parsed_date))
     
     for version in beta_versions:
-        print(version)
+        print(version,version.release_date)
     #     print(i)
     # print(tables[0],tables[0].iloc[:,1])
     return beta_versions
@@ -312,10 +312,10 @@ def fetch_alpha_versions(bwiki_html:bs4.Tag)->list[VersionObj]:
             
             
             major,minor,patch = map(int,split_version)
-            alpha_versions.append(VersionObj(major,minor,patch,extension=int(extension),stage=stage))
+            alpha_versions.append(VersionObj(major,minor,patch,extension=int(extension),stage=stage,release_date=parsed_date))
     
     for version in alpha_versions:
-        print(version)
+        print(version,version.release_date)
     #     print(i)
     # print(tables[0],tables[0].iloc[:,1])
     return alpha_versions
@@ -432,8 +432,8 @@ def fetch_classic_versions(bwiki_html:bs4.Tag)->list[VersionObj]:
     # print(f"{tables=}")
     for table in tables:
         
-        print("newline")
-        print(table)
+        # print("newline")
+        # print(table)
         minor_ver=0
         major_version+=1
         for index,row in table.iterrows():
@@ -506,8 +506,8 @@ def fetch_preclassic_versions(bwiki_html:bs4.Tag)->list[VersionObj]:
     # print(f"{tables=}")
     for table in tables:
         
-        print("newline")
-        print(table)
+        # print("newline")
+        # print(table)
         minor_ver=0
         major_version+=1
         for row in table.itertuples(index=False):
